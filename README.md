@@ -1,16 +1,155 @@
 # Obsidian Sample Plugin
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+This is a project based on the official Obsidian sample plugin template, but it is currently in an initial state with significant differences from the original sample repository.
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+## Project Status Description
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+**Current Status:** This is an empty plugin template project with no actual functionality implemented yet.
+
+**Main Differences from the Original Sample Repository:**
+
+### 1. Missing Core Functionality Code
+- **Original Sample Repository:** Contains a complete `main.ts` file that implements the following features:
+  - Adds a ribbon icon that shows a notice when clicked
+  - Adds an "Open Sample Modal" command
+  - Adds a plugin settings tab
+  - Registers a global click event and outputs 'click' to the console
+  - Registers a global interval that logs 'setInterval' to the console
+- **Current Repository:** The `main.ts` file is empty, with no plugin functionality implemented
+
+### 2. Configuration File Differences
+
+#### manifest.json Configuration
+- **Original Sample Repository:** Contains complete plugin information such as name, description, author, etc.
+- **Current Repository:** Most fields are empty:
+  ```json
+  {
+    "description": "",
+    "author": "",
+    "authorUrl": "",
+    "fundingUrl": ""
+  }
+  ```
+
+#### package.json Configuration
+- **Version Information:** Current version is "0.1.0", consistent with the original sample repository
+- **Dependency Management:** Development dependencies are fully configured, including TypeScript, ESLint, esbuild, and other tools
+- **Script Configuration:** Build scripts are fully configured, supporting development, building, and version management
+
+### 3. Build Configuration
+
+#### TypeScript Configuration (tsconfig.json)
+- **Target Version:** ES6 (consistent with the original sample repository)
+- **Module System:** ESNext (consistent with the original sample repository)
+- **Strict Mode:** Strict mode options such as strict null checks are enabled
+
+#### esbuild Configuration (esbuild.config.mjs)
+- **Build Target:** ES2018 (consistent with the original sample repository)
+- **External Dependencies:** Complete Obsidian API and CodeMirror module configuration
+- **Source Mapping:** Inline source mapping enabled in development mode
+
+### 4. Project Structure Completeness
+
+**Completely Preserved Components:**
+- ✅ Build configuration file (esbuild.config.mjs)
+- ✅ TypeScript configuration (tsconfig.json)
+- ✅ Package management configuration (package.json)
+- ✅ Plugin manifest (manifest.json)
+- ✅ Version management script (version-bump.mjs)
+- ✅ Style file (styles.css)
+- ✅ ESLint configuration (.eslintrc, .eslintignore)
+- ✅ Git ignore file (.gitignore)
+- ✅ Editor configuration (.editorconfig)
+
+**Missing or Needing Improvement:**
+- ❌ Main functionality code (main.ts is empty)
+- ❌ Plugin description information
+- ❌ Author information
+- ❌ Funding support links
+
+## Development Guide
+
+### Environment Requirements
+- Node.js v16 or higher
+- Obsidian desktop application
+
+### Quick Start
+
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Development Mode Compilation**
+   ```bash
+   npm run dev
+   ```
+
+3. **Plugin Installation**
+   - Copy the generated `main.js`, `styles.css`, `manifest.json` to the `.obsidian/plugins/sample-plugin/` directory in your Obsidian vault
+   - Or enable community plugins in Obsidian settings and use this directory as the plugin development directory
+
+### Development Workflow
+
+1. **Write Code:** Implement plugin functionality in `main.ts`
+2. **Auto Compilation:** After running `npm run dev`, code changes are automatically compiled to `main.js`
+3. **Test Plugin:** Reload Obsidian or re-enable the plugin to test changes
+4. **Code Quality:** Use ESLint to check code quality
+   ```bash
+   eslint main.ts
+   ```
+
+## Feature Comparison with Original Sample Repository
+
+| Feature | Original Sample Repository | Current Repository | Status |
+|---------|----------------------------|-------------------|---------|
+| Ribbon Icon | ✅ | ❌ | Needs Implementation |
+| Command System | ✅ | ❌ | Needs Implementation |
+| Settings Page | ✅ | ❌ | Needs Implementation |
+| Global Event Listening | ✅ | ❌ | Needs Implementation |
+| Timer Functionality | ✅ | ❌ | Needs Implementation |
+| Modal | ✅ | ❌ | Needs Implementation |
+| TypeScript Configuration | ✅ | ✅ | Configured |
+| Build System | ✅ | ✅ | Configured |
+| ESLint Integration | ✅ | ✅ | Configured |
+
+## Next Steps Development Suggestions
+
+1. **Implement Basic Functionality:** Reference the original sample repository to implement basic plugin classes and functionality in `main.ts`
+2. **Complete Metadata:** Add plugin description, author information, etc. in `manifest.json`
+3. **Add Feature Features:** Add custom functionality according to requirements
+4. **Test Verification:** Ensure all functionality works properly
+5. **Version Release:** Prepare plugin release according to the release process
+
+## Release Guide
+
+When plugin development is complete, you can release it following these steps:
+
+1. **Update Version Information**
+   ```bash
+   npm version patch  # or minor/major
+   ```
+
+2. **Build Production Version**
+   ```bash
+   npm run build
+   ```
+
+3. **Create GitHub Release**
+   - Use the version number as the tag
+   - Upload `manifest.json`, `main.js`, `styles.css` files
+
+4. **Submit to Community Plugin List**
+   - Ensure compliance with [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines)
+   - Create a Pull Request at [obsidian-releases](https://github.com/obsidianmd/obsidian-releases)
+
+## API Documentation
+
+For detailed Obsidian API documentation, please refer to: https://github.com/obsidianmd/obsidian-api
+
+## Summary
+
+The current project provides a complete Obsidian plugin development environment configuration but lacks actual plugin functionality implementation. Developers can use this template to quickly start plugin development, referencing the original sample repository's functionality implementation to build their own plugin features.
 
 ## First time developing plugins?
 
